@@ -194,7 +194,7 @@ def obtain_token!
 end
 
 def request_authorization(client, two_factor_code)
-  params = { :scopes => [ 'public_repo', 'repo' ], :note => 'git-pr-release' }
+  params = { :scopes => [ 'public_repo', 'repo' ], :note => "git-pr-release (#{Time.now})" }
   params[:headers] = { "X-GitHub-OTP" => two_factor_code} if two_factor_code
 
   auth = nil
